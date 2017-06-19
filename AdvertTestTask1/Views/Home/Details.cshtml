@@ -1,0 +1,33 @@
+﻿@model AdvertTestTask1.ViewModels.Commission
+@{
+    Layout = "_LayoutReg";
+}
+@{
+    ViewBag.Title = Model.CommUser;
+}
+<h2>@Model.CommUser</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Description: </dt>
+        <dd>@Model.OrderText</dd>
+
+        <dt>Price: </dt>
+        <dd>@Model.CommissionPrice $</dd>
+
+        @if (Model.CommTime == true)
+        {
+        <dt>Deadline:</dt>
+        <dd>None. Customer can wait</dd>
+        }
+        else
+        {
+        <dt>Deadline:</dt>
+        <dd>Artist should contact the customer and get a Deadline Confirmation.</dd>
+        }
+
+        <dt>Contact:</dt>
+        <dd>@Model.CommEmail</dd>
+
+
+    </dl>
+</div>

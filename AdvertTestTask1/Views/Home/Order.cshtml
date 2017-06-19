@@ -1,0 +1,79 @@
+﻿@model AdvertTestTask1.ViewModels.Commission
+@{
+    Layout = "_LayoutReg";
+}
+@{
+    ViewBag.Title = "Order Page";
+}
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+
+       
+
+        <form method="post">
+            <span asp-validation-summary="ModelOnly"></span>
+            @if (ViewBag.UserMessage != null)
+            {
+                <div>@ViewBag.UserMessage</div>
+
+            }
+
+          <div class="form-group">
+            <label asp-for="CommUser">Name</label>
+            <input asp-for="CommUser" class="form-control"/>
+            <span asp-validation-for="CommUser" class="text-muted"></span>
+          </div>
+
+          <div class="form-group">
+              <label asp-for="CommEmail">Email</label>
+              <input type="email" asp-for="CommEmail" class="form-control"/>
+              <span asp-validation-for="CommEmail" class="text-muted"></span>
+          </div>
+
+          <div class="form-group">
+            <label asp-for="OrderText">Message</label>
+            <textarea cols="40" rows="4" asp-for="OrderText" class="form-control"></textarea>
+            <span asp-validation-for="OrderText" class="text-muted"></span>
+          </div>
+
+          <div class="form-group">
+            <label asp-for="CommissionPrice">Price</label>
+            <input asp-for="CommissionPrice" class="form-control"/>
+            <span asp-validation-for="CommissionPrice" class="text-muted"></span>
+          </div>
+
+
+          <div class="form-group">
+            <label asp-for="CommTime">Would you mind having to wait in queue?</label>
+            <br/>
+              <input type="radio" name="commtime" value="0" class="form-control"> I would (I want to get a commission as soon as in possible)<Br>
+            <input type="radio" name="commtime" value="1" class="form-control"> Of course not (I can wait)<Br>
+           </div>
+
+            @*<div class="form-group">
+                <label>Title image</label>
+                <div asp-action="AddFile" asp-controller="Home" method="post" enctype="multipart/form-data">
+                    <input type="file" name="uploadedFile" /><br>
+                    <input type="submit" value="Загрузить" />
+                </div>
+            </div>*@
+              
+            <div class="form-group">
+                <a asp-controller="Home" asp-action="ViewCommissions" class="btn btn-default">Cancel</a>
+                <input type="submit" value="Send Message" asp-controller="Home" asp-action="ViewCommissions" class="btn btn-success">
+            </div>        
+</form>
+        
+            <address>
+                <strong>Support:</strong> <a href="mailto:lf.redheadfly@gmail.com">lf.redheadfly@gmail.com</a><br />
+            </address>
+
+</div>
+
+ </div>
+                
